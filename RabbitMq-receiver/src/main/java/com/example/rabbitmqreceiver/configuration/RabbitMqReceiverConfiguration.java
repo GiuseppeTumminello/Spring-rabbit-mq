@@ -17,17 +17,17 @@ public class RabbitMqReceiverConfiguration {
     private final RabbitMqValues rabbitMqValues;
 
     @Bean
-    Queue queue() {
+    public Queue queue() {
         return new Queue(rabbitMqValues.getQueue(), true);
     }
 
     @Bean
-    Exchange myExchange() {
+    public Exchange myExchange() {
         return ExchangeBuilder.directExchange(rabbitMqValues.getExchange()).durable(true).build();
     }
 
     @Bean
-    Binding binding() {
+    public Binding binding() {
         return BindingBuilder
                 .bind(queue())
                 .to(myExchange())

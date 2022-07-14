@@ -18,14 +18,11 @@ public class ProducerController {
 
     private final RabbitMqSenderService rabbitMqSenderService;
 
-
-
     @PostMapping("/user")
     public String publishUserDetails(@RequestBody UserData userData){
-
         this.rabbitMqSenderService.send(userData);
         log.info("User published successfully " + userData);
-        return "Message sent successfully";
+        return "Message sent successfully" ;
 
     }
 

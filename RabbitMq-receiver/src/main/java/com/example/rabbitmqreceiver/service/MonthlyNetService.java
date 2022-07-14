@@ -23,11 +23,6 @@ public class MonthlyNetService implements SalaryCalculatorService {
         }
     }
 
-    @Override
-    public String getDescription() {
-        return "Monthly net";
-    }
-
     private BigDecimal calculateTotalZus(BigDecimal grossMonthlySalary) {
         return grossMonthlySalary.subtract(grossMonthlySalary.multiply(this.rate.getTotalZusRate()));
     }
